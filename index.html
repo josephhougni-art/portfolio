@@ -1,99 +1,152 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrice Hougni | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patrice Hougni — Data Analyst & Gestion de PME</title>
+<meta name="description" content="Portfolio de Patrice Hougni, étudiant en Gestion des PME spécialisé en analyse de données Excel, SQL, Python et Blockchain/Web3.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<div class="grid-texture" aria-hidden="true"></div>
+
 <header class="hero">
-    <h1>Patrice Hougni</h1>
-
-    <h2>
-        Data Analyst | Gestion de PME | Blockchain & Web3
-    </h2>
-
-    <p>
-        Je transforme les données en informations utiles
-        pour aider les entreprises à prendre de meilleures décisions.
-    </p>
-
-    <a href="#projets">Découvrir mes projets</a>
+  <p class="eyebrow">A1 · Portfolio</p>
+  <h1>Patrice Hougni</h1>
+  <h2>Data Analyst — Gestion de PME — Blockchain &amp; Web3</h2>
+  <p class="lede">Je transforme les données en informations utiles pour aider les entreprises à prendre de meilleures décisions.</p>
+  <a class="cta" href="#projets">Découvrir mes projets ↓</a>
 </header>
 
+<nav class="sheet-tabs" aria-label="Navigation principale">
+  <a href="#apropos" class="tab active"><span>À propos</span></a>
+  <a href="#competences" class="tab"><span>Compétences</span></a>
+  <a href="#projets" class="tab"><span>Projets</span></a>
+  <a href="#contact" class="tab"><span>Contact</span></a>
+</nav>
 
-<section id="apropos">
-    <h2>À propos de moi</h2>
+<main>
 
-    <p>
-        Étudiant en Licence 3 Économie et Gestion des Petites
-        et Moyennes Entreprises, je développe mes compétences
-        en analyse de données, entrepreneuriat et technologies Web3.
-    </p>
+<section id="apropos" class="sheet">
+  <h2><span class="cell-ref">B2</span> À propos de moi</h2>
+  <p>
+    Étudiant en Licence 3 Économie et Gestion des Petites et Moyennes Entreprises,
+    je développe mes compétences en analyse de données, entrepreneuriat et
+    technologies Web3.
+  </p>
 </section>
 
-
-<section id="competences">
-
-<h2>Mes compétences</h2>
-
-<div>
-    📊 Excel & Analyse de données
-</div>
-
-<div>
-    🗄️ SQL & Gestion de bases de données
-</div>
-
-<div>
-    🐍 Python Data Analysis
-</div>
-
-<div>
-    📈 Gestion et développement des PME
-</div>
-
-<div>
-    ⛓️ Blockchain & Web3
-</div>
-
+<section id="competences" class="sheet">
+  <h2><span class="cell-ref">C2</span> Mes compétences</h2>
+  <div class="skills-grid">
+    <div class="skill-cell">
+      <span class="skill-icon" aria-hidden="true">📊</span>
+      <span>Excel &amp; Analyse de données</span>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-icon" aria-hidden="true">🗄️</span>
+      <span>SQL &amp; Gestion de bases de données</span>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-icon" aria-hidden="true">🐍</span>
+      <span>Python Data Analysis</span>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-icon" aria-hidden="true">📈</span>
+      <span>Gestion et développement des PME</span>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-icon" aria-hidden="true">⛓️</span>
+      <span>Blockchain &amp; Web3</span>
+    </div>
+  </div>
 </section>
 
+<section id="projets" class="sheet">
+  <h2><span class="cell-ref">D2</span> Mes projets</h2>
 
-<section id="projets">
+  <div class="projects-grid">
 
-<h2>Mes projets</h2>
+    <article class="project-card" data-level="Simple">
+      <div class="project-head">
+        <h3>Suivi des Ventes Mensuelles d'une Boutique</h3>
+        <span class="badge badge-simple">Simple</span>
+      </div>
+      <p>Journal de transactions avec KPIs et synthèse par catégorie et région.</p>
+      <ul class="tech-list">
+        <li>SUMIFS / COUNTIFS</li>
+        <li>Tableaux de synthèse</li>
+        <li>Graphiques</li>
+      </ul>
+    </article>
 
-<div>
-    <h3>Dashboard Excel</h3>
-    <p>
-    Analyse et visualisation des données commerciales.
-    </p>
-</div>
+    <article class="project-card" data-level="Simple">
+      <div class="project-head">
+        <h3>Gestion de Stock avec Alertes de Réapprovisionnement</h3>
+        <span class="badge badge-simple">Simple</span>
+      </div>
+      <p>Fiche stock et journal des mouvements avec alertes conditionnelles automatiques.</p>
+      <ul class="tech-list">
+        <li>INDEX / MATCH</li>
+        <li>Mise en forme conditionnelle</li>
+        <li>Synthèse par catégorie</li>
+      </ul>
+    </article>
 
-<div>
-    <h3>Projet Gestion PME</h3>
-    <p>
-    Études et solutions pour améliorer la performance des entreprises.
-    </p>
-</div>
+    <article class="project-card project-card--pending" data-level="Moyen">
+      <div class="project-head">
+        <h3>Projet moyen — à venir</h3>
+        <span class="badge badge-pending">Bientôt</span>
+      </div>
+      <p>Prochain projet en préparation.</p>
+    </article>
 
+    <article class="project-card project-card--pending" data-level="Moyen">
+      <div class="project-head">
+        <h3>Projet moyen — à venir</h3>
+        <span class="badge badge-pending">Bientôt</span>
+      </div>
+      <p>Prochain projet en préparation.</p>
+    </article>
+
+    <article class="project-card project-card--pending" data-level="Difficile">
+      <div class="project-head">
+        <h3>Projet avancé — à venir</h3>
+        <span class="badge badge-pending">Bientôt</span>
+      </div>
+      <p>Prochain projet en préparation.</p>
+    </article>
+
+    <article class="project-card project-card--pending" data-level="Difficile">
+      <div class="project-head">
+        <h3>Projet avancé — à venir</h3>
+        <span class="badge badge-pending">Bientôt</span>
+      </div>
+      <p>Prochain projet en préparation.</p>
+    </article>
+
+  </div>
 </section>
 
+<section id="contact" class="sheet">
+  <h2><span class="cell-ref">E2</span> Contact</h2>
+  <p>Une opportunité, un projet, une question ? Écris-moi.</p>
+  <div class="contact-links">
+    <a href="mailto:patrice.hougni@example.com">✉️ patrice.hougni@example.com</a>
+    <a href="https://linkedin.com/in/patrice-hougni" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/patrice-hougni" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+</main>
 
 <footer>
-
-<p>
-© 2026 Patrice Hougni
-</p>
-
+  <p>© 2026 Patrice Hougni</p>
 </footer>
 
-
 <script src="script.js"></script>
-
 </body>
 </html>
