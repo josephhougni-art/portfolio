@@ -1,42 +1,286 @@
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#0f172a;
-    color:white;
+/* ===== Design tokens =====
+   Palette: paper #F7F8F6, ink #16241B, excel-green #1E7145,
+            gold #C9A227, grid-line #D8DDD5, card #FFFFFF
+   Type: Space Grotesk (display) / Inter (body) / IBM Plex Mono (data)
+*/
+
+:root {
+  --paper: #F7F8F6;
+  --ink: #16241B;
+  --green: #1E7145;
+  --green-dark: #123A24;
+  --gold: #C9A227;
+  --grid-line: #D8DDD5;
+  --card: #FFFFFF;
+  --muted: #5B6B60;
 }
 
-header{
-    text-align:center;
-    padding:80px 20px;
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  position: relative;
 }
 
-h1{
-    font-size:48px;
-    margin-bottom:10px;
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
 }
 
-p{
-    font-size:20px;
+/* Subtle graph-paper texture, fixed behind content */
+.grid-texture {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
 }
 
-a{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 24px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
+/* ===== Hero ===== */
+.hero {
+  padding: 6rem 1.5rem 4rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-section{
-    padding:60px 20px;
-    max-width:900px;
-    margin:auto;
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.75rem;
 }
 
-footer{
-    text-align:center;
-    padding:30px;
-    background:#111827;
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero h2 {
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 0.75rem;
+}
+
+.lede {
+  margin: 1.5rem auto 2rem;
+  max-width: 480px;
+  color: var(--muted);
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  background: var(--green);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+.cta:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* ===== Signature element: Excel-style sheet-tab navigation ===== */
+.sheet-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.6rem 1.5rem 0;
+  background: var(--paper);
+  border-bottom: 2px solid var(--grid-line);
+  overflow-x: auto;
+}
+
+.tab {
+  position: relative;
+  padding: 0.7rem 1.25rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--muted);
+  background: #EEF1EC;
+  border: 1px solid var(--grid-line);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tab:hover { background: #E3E8E0; color: var(--ink); }
+
+.tab.active,
+.tab:target {
+  background: var(--card);
+  color: var(--green);
+  font-weight: 500;
+  border-color: var(--grid-line);
+  box-shadow: 0 -2px 0 var(--green) inset;
+}
+
+.tab:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* ===== Sheets (sections) ===== */
+main { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+.sheet {
+  background: var(--card);
+  border: 1px solid var(--grid-line);
+  border-radius: 8px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+}
+
+.sheet h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.cell-ref {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--gold);
+  background: #FBF6E8;
+  border: 1px solid #EBDDA8;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
+/* ===== Skills grid ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.skill-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  background: var(--paper);
+  border: 1px solid var(--grid-line);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.skill-icon { font-size: 1.2rem; }
+
+/* ===== Projects ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  padding: 1.5rem;
+  border: 1px solid var(--grid-line);
+  border-radius: 6px;
+  background: var(--paper);
+}
+
+.project-card--pending {
+  opacity: 0.55;
+  border-style: dashed;
+}
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-head h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.badge-simple { background: #E6F4EC; color: var(--green-dark); }
+.badge-pending { background: #EEE; color: var(--muted); }
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-list li {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  background: #fff;
+  border: 1px solid var(--grid-line);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  color: var(--muted);
+}
+
+/* ===== Contact ===== */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-links a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+}
+
+.contact-links a:hover { border-bottom-color: var(--green); }
+.contact-links a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 2.5rem 1.5rem 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .sheet { padding: 1.75rem 1.25rem; }
+  .sheet-tabs { padding-left: 1rem; }
 }
