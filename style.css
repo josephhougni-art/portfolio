@@ -284,3 +284,25 @@ footer {
   .sheet { padding: 1.75rem 1.25rem; }
   .sheet-tabs { padding-left: 1rem; }
 }
+.contact-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.contact-links a {
+  color: var(--muted);
+  display: inline-flex;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-links a:hover {
+  color: var(--green);
+  transform: translateY(-2px);
+}
+
+.contact-links a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
